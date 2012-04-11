@@ -9,8 +9,10 @@ For now, you can install Salt from source.
 Download the Salt source from github here https://github.com/saltstack/salt
 We've created a repository containing all the Salt dependencies for your convenience here:   https://github.com/saltstack/salt-windows-install
 
-## Install on Windows XP 32 bit ##
-### First, install the Salt dependencies ###
+## Install on Windows XP 32 bit
+
+### First, install the Salt dependencies
+
 1.  Python 2.7.x from http://python.org
     1.  Add "C:\Python27" to your path
 1.  Install vcredist_x86.exe
@@ -30,7 +32,8 @@ We've created a repository containing all the Salt dependencies for your conveni
 1.  jinja2
     1.  "easy_install jinja2"
 
-### Second, install the Salt source ###
+### Second, install the Salt source
+
 1.  Open command prompt and change directory into the Salt source directory
 1.  Run "python setup.py install"
 1.  Create "C:\salt" folder
@@ -40,10 +43,12 @@ We've created a repository containing all the Salt dependencies for your conveni
     1.  root_dir:  C:\salt\
     1.  multiprocessing: False
 
-### Start the Salt minion ###
+### Start the Salt minion
+
 1.  From command prompt run "python \Python27\Scripts\salt-minion -c 'c:\salt\minion'"
 1.  On your Salt Master, accept your Windows Salt minion key
 
-### Install and start the Salt minion as a Windows service ###
+### Install and start the Salt minion as a Windows service
+
 1.  From command prompt run "python \Python27\Scripts\salt-minion -c 'c:\salt\minion' -d"
 1.  On your Salt Master, accept your Windows Salt minion key
