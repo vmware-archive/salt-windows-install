@@ -17,7 +17,7 @@ First, install the Salt dependencies
 
 #.  Python 2.7.x from http://python.org
 
-    #.  Add "C:\Python27" to your path
+    #.  Add "C:\\Python27" to your path
 
 #.  Install vcredist_x86.exe
 #.  Win32OpenSSL-1_0_0e.exe
@@ -36,7 +36,7 @@ First, install the Salt dependencies
     #.  http://python-distribute.org/distribute_setup.py
     #.  "python distribute_setup.py"
 
-#.  Add "C:\Python27\scripts" to your path
+#.  Add "C:\\Python27\\scripts" to your path
 #.  jinja2
 
     #.  "easy_install jinja2"
@@ -46,22 +46,22 @@ Second, install the Salt source
 
 #.  Open command prompt and change directory into the Salt source directory
 #.  Run "python setup.py install"
-#.  Create "C:\salt" folder
-#.  Copy saltsource/conf/minion.template to "C:\salt\minion"
-#.  Edit "C:\salt\minion":
+#.  Create "C:\\salt" folder
+#.  Copy saltsource/conf/minion.template to "C:\\salt\\minion"
+#.  Edit "C:\\salt\\minion":
 
     #.  master: ipaddress or hostname of your salt-master
-    #.  root_dir:  C:\salt\
+    #.  root_dir:  C:\\salt\\
     #.  multiprocessing: False
 
 Start the Salt minion
 ---------------------
 
-#.  From command prompt run "python \Python27\Scripts\salt-minion -c 'c:\salt\minion'"
+#.  From command prompt run "python \\Python27\\Scripts\\salt-minion -c 'c:\\salt\\minion'"
 #.  On your Salt Master, accept your Windows Salt minion key
 
 Install and start the Salt minion as a Windows service
 ------------------------------------------------------
 
-#.  From command prompt run "python \Python27\Scripts\salt-minion -c 'c:\salt\minion' -d"
+#.  From command prompt run "python \\Python27\\Scripts\\salt-minion -c 'c:\\salt\\minion' -d"
 #.  On your Salt Master, accept your Windows Salt minion key
