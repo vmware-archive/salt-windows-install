@@ -1,0 +1,17 @@
+#!c:\Python27\python.exe
+'''
+Start the salt-master
+'''
+
+import salt
+
+
+def main():
+    '''
+    The main function
+    '''
+    master = salt.Master()
+    master.start()
+
+if __name__ == '__main__':
+    main()

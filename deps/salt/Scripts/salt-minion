@@ -1,0 +1,18 @@
+#!c:\Python27\python.exe
+'''
+This script is used to kick off a salt minion daemon
+'''
+
+import os
+import salt
+
+
+def main():
+    '''
+    The main function
+    '''
+    minion = salt.Minion()
+    minion.start()
+
+if __name__ == '__main__':
+    main()
