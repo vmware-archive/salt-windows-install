@@ -4,10 +4,20 @@ Salt Windows Installer
 
 This repository is for the Windows installer
 
-Work is currently ongoing to create a simple Salt Windows installer.
+Work is currently ongoing to create a simple Salt Windows installer in the
+subfolder "salt" inside the "deps" folder, but is currently broken.
 For now, you can install Salt from source.
 Download the Salt source from github here https://github.com/saltstack/salt
-We've created a repository containing all the Salt dependencies for your convenience here:   https://github.com/saltstack/salt-windows-install
+We've created a repository containing all the Salt dependencies for your 
+convenience here:   https://github.com/saltstack/salt-windows-install
+
+These instructions are for installing on Windows XP 32bit. You can find
+these packages here: 
+https://github.com/saltstack/salt-windows-install/tree/master/deps/win32-py2.7
+
+For Windows 7 64 bit, please use the corresponding packages found here: 
+https://github.com/saltstack/salt-windows-install/tree/master/deps/win-amd64-py2.7
+
 
 Install on Windows XP 32 bit
 ----------------------------
