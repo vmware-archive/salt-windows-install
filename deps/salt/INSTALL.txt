@@ -1,0 +1,11 @@
+Installation instructions
+
+
+1. Copy this folder to C:\salt\
+2. Install vcredist_x86.exe /q
+3. Add C:\salt\OpenSSL-Win32\bin to your Windows PATH
+4. Create an OPENSSL_CONF environment variable and set it
+   to C:\salt\OpenSSL-Win32\bin\openssl.cfg
+5. Run salt-start.bat to start the minion or run 
+   salt-install-service.bat to install the Salt-Minion
+   Windows service and start it.
