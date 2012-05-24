@@ -53,10 +53,18 @@
     </Component>
 
     <Component Id="OPENSSL_PATH_ENV"
-      Guid="{25AEB8E7-3774-4403-828E-C5A3B59B9D64}">
+      Guid="{25AEB8E8-3774-4403-828E-C5A3B59B9D64}">
       <Environment Id="OPENSSL_PATH" Action="set" Part="last"
         Name="PATH"
         Permanent="no" System="yes" Value="[TARGETDIR]salt\OpenSSL-Win32\bin" />
+    </Component>
+
+    <Component Id="OPENSSL_CONF_ENV"
+      Guid="{25AEB8E7-3774-4403-828E-C5A3B59B9D64}">
+      <Environment Id="OPENSSL_CONF" Action="set" Part="all"
+        Name="OPENSSL_CONF"
+        Permanent="no" System="yes"
+	Value="[TARGETDIR]salt\OpenSSL-Win32\bin\openssl.cfg" />
     </Component>
 
   </Directory>
@@ -78,6 +86,7 @@
     <ComponentGroupRef Id="PortableSalt" />
     <ComponentRef Id="MINION_CONFIG_ENV" />
     <ComponentRef Id="OPENSSL_PATH_ENV" />
+    <ComponentRef Id="OPENSSL_CONF_ENV" />
     <!--
     <ComponentRef Id="python27_dll" />
     <ComponentRef Id="pythoncom27_dll" />
