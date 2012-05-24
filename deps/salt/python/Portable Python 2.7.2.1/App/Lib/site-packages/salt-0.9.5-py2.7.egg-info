@@ -1,0 +1,23 @@
+Metadata-Version: 1.0
+Name: salt
+Version: 0.9.5
+Summary: Portable, distributed, remote execution and configuration management system
+Home-page: http://saltstack.org
+Author: Thomas S Hatch
+Author-email: thatch45@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Clustering
+Classifier: Topic :: System :: Distributed Computing

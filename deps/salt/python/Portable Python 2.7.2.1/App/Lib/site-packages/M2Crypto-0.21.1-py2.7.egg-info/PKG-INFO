@@ -1,0 +1,23 @@
+Metadata-Version: 1.0
+Name: M2Crypto
+Version: 0.21.1
+Summary: M2Crypto: A Python crypto and SSL toolkit
+Home-page: http://chandlerproject.org/Projects/MeTooCrypto
+Author: Heikki Toivonen
+Author-email: heikki@osafoundation.org
+License: BSD-style license
+Description: M2Crypto is the most complete Python wrapper for OpenSSL featuring RSA, DSA,
+        DH, EC, HMACs, message digests, symmetric ciphers (including AES); SSL
+        functionality to implement clients and servers; HTTPS extensions to Python's
+        httplib, urllib, and xmlrpclib; unforgeable HMAC'ing AuthCookies for web
+        session management; FTP/TLS client and server; S/MIME; ZServerSSL: A HTTPS
+        server for Zope and ZSmime: An S/MIME messenger for Zope. M2Crypto can also be
+        used to provide SSL for Twisted.
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
