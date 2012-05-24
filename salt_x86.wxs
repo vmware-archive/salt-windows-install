@@ -52,6 +52,13 @@
         Permanent="no" System="yes" Value="[TARGETDIR]salt\minion" />
     </Component>
 
+    <Component Id="OPENSSL_PATH_ENV"
+      Guid="{25AEB8E7-3774-4403-828E-C5A3B59B9D64}">
+      <Environment Id="OPENSSL_PATH" Action="set" Part="last"
+        Name="PATH"
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\OpenSSL-Win32\bin" />
+    </Component>
+
   </Directory>
 
   <!--
@@ -70,6 +77,7 @@
   <Feature Id='Salt' Title='Python with all packages' Level='1'>
     <ComponentGroupRef Id="PortableSalt" />
     <ComponentRef Id="MINION_CONFIG_ENV" />
+    <ComponentRef Id="OPENSSL_PATH_ENV" />
     <!--
     <ComponentRef Id="python27_dll" />
     <ComponentRef Id="pythoncom27_dll" />
