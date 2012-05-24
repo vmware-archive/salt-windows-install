@@ -1,0 +1,82 @@
+<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+<Product
+    Id='{29AEB8E7-3773-4403-828E-C5A3B59B9D62}'
+    Name='Salt'
+    Language='1033'
+    Version='1.0.0.1'
+    Manufacturer='Salt Community'
+    UpgradeCode='{29AEB8E7-3773-4403-828E-C5A3B59B9D63}'>
+  <Package
+    Description='Salt Windows Installer package'
+    Comments='Salt Windows Installer with all dependencies'
+    Manufacturer='Salt Community'
+    InstallerVersion='200'
+    Compressed='yes' />
+
+  <Media Id='1' Cabinet='salt.cab' EmbedCab='yes' />
+
+  <Directory Id='TARGETDIR' Name='SourceDir'>
+
+    <!--
+    <Directory Id='WINDOWSDir' Name='WINDOWS'>
+      <Directory Id='System32Dir' Name='System32'>
+        <Component Id='python27_dll'
+          Guid='{24AEB8E6-3773-4401-828E-C5A3B59B9D64}'>
+          <File Id='PYTHON27.DLL' Name='python27.dll'
+	    DiskId='1' Source='deps\salt\python\App\python27.dll' />
+        </Component>
+        <Component Id='pythoncom27_dll'
+          Guid='{24AEB8E6-3773-4402-828E-C5A3B59B9D64}'>
+          <File Id='PYTHONCOM27.DLL' Name='pythoncom27.dll'
+	    DiskId='1' Source='deps\salt\python\App\pythoncom27.dll' />
+        </Component>
+        <Component Id='pythoncomloader27_dll'
+          Guid='{24AEB8E6-3773-4403-828E-C5A3B59B9D64}'>
+          <File Id='PYTHONCOMLOADER27.DLL' Name='pythoncomloader27.dll'
+	    DiskId='1' Source='deps\salt\python\App\pythoncomloader27.dll' />
+        </Component>
+        <Component Id='pywintypes27_dll'
+          Guid='{24AEB8E6-3773-4404-828E-C5A3B59B9D64}'>
+          <File Id='PYWINTYPES27.DLL' Name='pywintypes27.dll'
+	    DiskId='1' Source='deps\salt\python\App\pywintypes27.dll' />
+        </Component>
+      </Directory>
+    </Directory>
+    -->
+
+    <Component Id="MINION_CONFIG_ENV"
+      Guid="{25AEB8E7-3773-4403-828E-C5A3B59B9D64}">
+      <Environment Id="SALT_MINION_CONFIG" Action="set" Part="all"
+        Name="SALT_MINION_CONFIG" 
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\minion" />
+    </Component>
+
+  </Directory>
+
+  <!--
+  <Binary Id='vcredist_exe' SourceFile='deps\win32-py2.7\vcredist_x86.exe' />
+
+  <CustomAction Id="Installvcredist"
+    BinaryKey="vcredist_exe"
+    ExeCommand='vcredist_x86.exe'
+    Execute="immediate"
+    Return="ignore" />
+
+  <InstallExecuteSequence>
+    <Custom Action="Installvcredist" After="InstallInitialize"/>
+  </InstallExecuteSequence>
+  -->
+  <Feature Id='Salt' Title='Python with all packages' Level='1'>
+    <ComponentGroupRef Id="PortableSalt" />
+    <ComponentRef Id="MINION_CONFIG_ENV" />
+    <!--
+    <ComponentRef Id="python27_dll" />
+    <ComponentRef Id="pythoncom27_dll" />
+    <ComponentRef Id="pythoncomloader27_dll" />
+    <ComponentRef Id="pywintypes27_dll" />
+    -->
+  </Feature>
+
+</Product>
+</Wix>
