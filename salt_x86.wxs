@@ -1,0 +1,75 @@
+<?xml version='1.0'?>
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
+<Product
+    Id='{29AEB8E7-3773-4403-828E-C5A3B59B9D62}'
+    Name='Salt'
+    Language='1033'
+    Version='1.0.0.1'
+    Manufacturer='Salt Community'
+    UpgradeCode='{29AEB8E7-3773-4403-828E-C5A3B59B9D63}'>
+  <Package
+    Description='Salt Windows Installer package'
+    Comments='Salt Windows Installer with all dependencies'
+    Manufacturer='Salt Community'
+    InstallerVersion='200'
+    Compressed='yes' />
+
+  <Media Id='1' Cabinet='salt.cab' EmbedCab='yes' />
+
+  <Directory Id='TARGETDIR' Name='SourceDir'>
+
+    <Component Id="MINION_CONFIG_ENV"
+      Guid="{25AEB8E7-3773-4403-828E-C5A3B59B9D64}">
+      <Environment Id="SALT_MINION_CONFIG" Action="set" Part="all"
+        Name="SALT_MINION_CONFIG" 
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\etc\salt\minion" />
+    </Component>
+
+    <Component Id="OPENSSL_PATH_ENV"
+      Guid="{25AEB8E8-3774-4403-828E-C5A3B59B9D64}">
+      <Environment Id="OPENSSL_PATH" Action="set" Part="last"
+        Name="PATH"
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\OpenSSL-Win32\bin" />
+    </Component>
+
+    <Component Id="PYWIN32_PATH_ENV"
+      Guid="{25AEB8E9-3774-4403-828E-C5A3B59B9D64}">
+      <Environment Id="PYWIN32_PATH" Action="set" Part="last"
+        Name="PATH"
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\python\App" />
+    </Component>
+
+    <Component Id="OPENSSL_CONF_ENV"
+      Guid="{25AEB8E7-3774-4403-828E-C5A3B59B9D64}">
+      <Environment Id="OPENSSL_CONF" Action="set" Part="all"
+        Name="OPENSSL_CONF"
+        Permanent="no" System="yes"
+        Value="[TARGETDIR]salt\OpenSSL-Win32\bin\openssl.cfg" />
+    </Component>
+
+  </Directory>
+
+  <!--
+  <Binary Id='vcredist_exe' SourceFile='deps\win32-py2.7\vcredist_x86.exe' />
+
+  <CustomAction Id="Installvcredist"
+    BinaryKey="vcredist_exe"
+    ExeCommand='vcredist_x86.exe'
+    Execute="immediate"
+    Return="ignore" />
+
+  <InstallExecuteSequence>
+    <Custom Action="Installvcredist" After="InstallInitialize"/>
+  </InstallExecuteSequence>
+  -->
+
+  <Feature Id='Salt' Title='Python with all packages' Level='1'>
+    <ComponentGroupRef Id="PortableSalt" />
+    <ComponentRef Id="MINION_CONFIG_ENV" />
+    <ComponentRef Id="OPENSSL_PATH_ENV" />
+    <ComponentRef Id="PYWIN32_PATH_ENV" />
+    <ComponentRef Id="OPENSSL_CONF_ENV" />
+  </Feature>
+
+</Product>
+</Wix>
