@@ -6,4 +6,4 @@
 
 heat dir deps\salt -gg -cg PortableSalt -var var.SaltDir -sreg -o allfiles.wxs
 candle -dSaltDir="deps\salt" salt_x86.wxs allfiles.wxs
-light salt.wixobj allfiles.wixobj -o salt_x86.msi
+light salt_x86.wixobj allfiles.wixobj -o salt_x86.msi
