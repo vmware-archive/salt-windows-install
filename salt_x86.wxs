@@ -44,7 +44,7 @@
       <Environment Id="OPENSSL_CONF" Action="set" Part="all"
         Name="OPENSSL_CONF"
         Permanent="no" System="yes"
-	Value="[TARGETDIR]salt\OpenSSL-Win32\bin\openssl.cfg" />
+        Value="[TARGETDIR]salt\OpenSSL-Win32\bin\openssl.cfg" />
     </Component>
 
   </Directory>
