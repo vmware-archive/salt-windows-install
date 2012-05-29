@@ -49,20 +49,6 @@
 
   </Directory>
 
-  <!--
-  <Binary Id='vcredist_exe' SourceFile='deps\win32-py2.7\vcredist_x86.exe' />
-
-  <CustomAction Id="Installvcredist"
-    BinaryKey="vcredist_exe"
-    ExeCommand='vcredist_x86.exe'
-    Execute="immediate"
-    Return="ignore" />
-
-  <InstallExecuteSequence>
-    <Custom Action="Installvcredist" After="InstallInitialize"/>
-  </InstallExecuteSequence>
-  -->
-
   <Feature Id='Salt' Title='Python with all packages' Level='1'>
     <ComponentGroupRef Id="PortableSalt" />
     <ComponentRef Id="MINION_CONFIG_ENV" />
