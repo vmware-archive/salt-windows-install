@@ -21,7 +21,7 @@
     <Directory Id='WINDOWSDir' Name='WINDOWS'>
       <Directory Id='System32Dir' Name='System32'>
         <Component Id='libeay32_dll'
-          Guid='{24AEB8E6-3673-4401-828E-C5A3B59B9D64}'>
+          Guid='{24AEB8E6-3673-4411-828E-C5A3B59B9D64}'>
           <File Id='LIBEAY32_DLL' Name='libeay32.dll'
            DiskId='1' Source='deps\win32-py2.7\OpenSSL-Win32\libeay32.dll' />
         </Component>
@@ -40,11 +40,38 @@
         Permanent="no" System="yes" Value="[TARGETDIR]salt\etc\minion" />
     </Component>
 
+    <Directory Id='SaltDir' Name='salt'>
+      <Directory Id='PythonDir' Name='python'>
+        <Directory Id='DLLsDir' Name='DLLs'>
+          <Component Id='PYTHON27_DLL'
+            Guid='{24AEB8E6-3673-4401-828E-C5A3B59B9D64}'>
+            <File Id='python27_dll' Name='python27.dll'
+             DiskId='1' Source='deps/salt/python/App/python27.dll' />
+          </Component>
+          <Component Id='PYTHONCOM27_DLL'
+            Guid='{24AEB8E6-3673-4401-828E-C6A3B59B9D64}'>
+            <File Id='pythoncom27_dll' Name='pythoncom27.dll'
+             DiskId='1' Source='deps/salt/python/App/pythoncom27.dll' />
+          </Component>
+          <Component Id='PYTHONCOMLOADER27_DLL'
+            Guid='{24AEB8E6-3673-4401-828E-C7A3B59B9D64}'>
+            <File Id='pythoncomloader27_dll' Name='pythoncomloader27.dll'
+             DiskId='1' Source='deps/salt/python/App/pythoncomloader27.dll' />
+          </Component>
+          <Component Id='PYWINTYPES27_DLL'
+            Guid='{24AEB8E6-3673-4401-828E-C8A3B59B9D64}'>
+            <File Id='pywintypes27_dll' Name='pywintypes27.dll'
+             DiskId='1' Source='deps/salt/python/App/pywintypes27.dll' />
+          </Component>
+        </Directory>
+      </Directory>
+    </Directory>
+
     <Component Id="PYWIN32_PATH_ENV"
       Guid="{25AEB8E9-3774-4403-828E-C5A3B59B9D64}">
       <Environment Id="PYWIN32_PATH" Action="set" Part="last"
         Name="PATH"
-        Permanent="no" System="yes" Value="[TARGETDIR]salt\python\App" />
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\python\DLLs" />
     </Component>
 
   </Directory>
@@ -55,6 +82,10 @@
     <ComponentRef Id="PYWIN32_PATH_ENV" />
     <ComponentRef Id='ssleay32_dll' />
     <ComponentRef Id='libeay32_dll' />
+    <ComponentRef Id='PYTHON27_DLL' />
+    <ComponentRef Id='PYTHONCOM27_DLL' />
+    <ComponentRef Id='PYTHONCOMLOADER27_DLL' />
+    <ComponentRef Id='PYWINTYPES27_DLL' />
   </Feature>
 
 </Product>
