@@ -18,18 +18,26 @@
 
   <Directory Id='TARGETDIR' Name='SourceDir'>
 
+    <Directory Id='WINDOWSDir' Name='WINDOWS'>
+      <Directory Id='System32Dir' Name='System32'>
+        <Component Id='libeay32_dll'
+          Guid='{24AEB8E6-3673-4401-828E-C5A3B59B9D64}'>
+          <File Id='LIBEAY32_DLL' Name='libeay32.dll'
+           DiskId='1' Source='deps\win32-py2.7\OpenSSL-Win32\libeay32.dll' />
+        </Component>
+        <Component Id='ssleay32_dll'
+          Guid='{24AEB8E6-3873-4401-828E-C5A3B59B9D64}'>
+          <File Id='SSLEAY32_DLL' Name='ssleay32.dll'
+           DiskId='1' Source='deps\win32-py2.7\OpenSSL-Win32\ssleay32.dll' />
+        </Component>
+      </Directory>
+    </Directory>
+
     <Component Id="MINION_CONFIG_ENV"
       Guid="{25AEB8E7-3773-4403-828E-C5A3B59B9D64}">
       <Environment Id="SALT_MINION_CONFIG" Action="set" Part="all"
         Name="SALT_MINION_CONFIG" 
-        Permanent="no" System="yes" Value="[TARGETDIR]salt\etc\salt\minion" />
-    </Component>
-
-    <Component Id="OPENSSL_PATH_ENV"
-      Guid="{25AEB8E8-3774-4403-828E-C5A3B59B9D64}">
-      <Environment Id="OPENSSL_PATH" Action="set" Part="last"
-        Name="PATH"
-        Permanent="no" System="yes" Value="[TARGETDIR]salt\OpenSSL-Win32\bin" />
+        Permanent="no" System="yes" Value="[TARGETDIR]salt\etc\minion" />
     </Component>
 
     <Component Id="PYWIN32_PATH_ENV"
@@ -39,22 +47,14 @@
         Permanent="no" System="yes" Value="[TARGETDIR]salt\python\App" />
     </Component>
 
-    <Component Id="OPENSSL_CONF_ENV"
-      Guid="{25AEB8E7-3774-4403-828E-C5A3B59B9D64}">
-      <Environment Id="OPENSSL_CONF" Action="set" Part="all"
-        Name="OPENSSL_CONF"
-        Permanent="no" System="yes"
-        Value="[TARGETDIR]salt\OpenSSL-Win32\bin\openssl.cfg" />
-    </Component>
-
   </Directory>
 
   <Feature Id='Salt' Title='Python with all packages' Level='1'>
     <ComponentGroupRef Id="PortableSalt" />
     <ComponentRef Id="MINION_CONFIG_ENV" />
-    <ComponentRef Id="OPENSSL_PATH_ENV" />
     <ComponentRef Id="PYWIN32_PATH_ENV" />
-    <ComponentRef Id="OPENSSL_CONF_ENV" />
+    <ComponentRef Id='ssleay32_dll' />
+    <ComponentRef Id='libeay32_dll' />
   </Feature>
 
 </Product>
