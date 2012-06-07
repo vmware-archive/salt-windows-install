@@ -1,9 +1,31 @@
-- The installer use the PortablePython distribution as the base
+The installer use the PortablePython distribution as the base
 
-- Download Wix 3.5 from http://wix.codeplex.com/
-- Append "C:\Program Files\Windows Installer XML v3.5\bin" to PATH environment variable
-- Run these three commands to create MSI.
+1. Download Wix 3.5 from http://wix.codeplex.com/
 
-heat dir deps\salt -gg -cg PortableSalt -var var.SaltDir -sreg -o allfiles.wxs
-candle -dSaltDir="deps\salt" salt_x86.wxs allfiles.wxs
-light salt_x86.wixobj allfiles.wixobj -o salt_x86.msi
+2. Append "C:\Program Files\Windows Installer XML v3.5\bin" to
+   PATH environment variable
+
+3. Install Salt
+
+   To install the latest released version of salt::
+
+     deps\salt\python\App\Scripts\pip.exe install salt
+
+   To install a particular version of Salt::
+
+     deps\salt\python\App\Scripts\pip.exe install salt==1.0.0
+
+   To install from Git::
+
+     git clone git://github.com/saltstack/salt.git
+     cd salt
+     deps\salt\python\App\python.exe setup.py install
+
+4. Run the Wix commands
+
+   ::
+
+     heat dir deps\salt -gg -cg PortableSalt -var var.SaltDir -sreg -o all.wxs
+     candle -dSaltDir="deps\salt" salt_x86.wxs all.wxs
+     light salt_x86.wixobj all.wixobj -o salt_x86.msi
+
