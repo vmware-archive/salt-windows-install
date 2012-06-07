@@ -1,0 +1,5 @@
+*.py[co]
+*.wixobj
+*.wixpdb
+*.msi
+all.wxs
