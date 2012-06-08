@@ -19,6 +19,7 @@ The installer use the PortablePython distribution as the base
 
      git clone git://github.com/saltstack/salt.git
      cd salt
+     type NUL > requirements.txt
      deps\salt\python\App\python.exe setup.py install
 
 4. Run the Wix commands
