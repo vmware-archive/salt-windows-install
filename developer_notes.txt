@@ -9,11 +9,11 @@ The installer use the PortablePython distribution as the base
 
    To install the latest released version of salt::
 
-     deps\salt\python\App\Scripts\pip.exe install salt
+     deps\salt\python\App\Scripts\pip.exe install --no-deps salt
 
    To install a particular version of Salt::
 
-     deps\salt\python\App\Scripts\pip.exe install salt==1.0.0
+     deps\salt\python\App\Scripts\pip.exe install --no-deps salt==1.0.0
 
    To install from Git::
 
