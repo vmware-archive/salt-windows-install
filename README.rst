@@ -62,6 +62,7 @@ Second, install the Salt source
 
     #.  master: ipaddress or hostname of your salt-master
     #.  root_dir:  C:\\salt\\
+    #.  ipc_mode: tcp
     #.  multiprocessing: False
 
 Start the Salt minion
